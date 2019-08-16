@@ -16,6 +16,18 @@ class Layout extends Component {
     sidebar: SidebarProps.isRequired,
   };
 
+  state = {
+
+  };
+
+  componentDidMount() {
+    const {user, history} = this.props;
+    console.log("layout", typeof user)
+    if (!user){
+      history.push("/");
+    }else history.push("/sihayuser")
+  }
+
   changeSidebarVisibility = () => {
     const { dispatch } = this.props;
     dispatch(changeSidebarVisibility());
@@ -63,4 +75,5 @@ class Layout extends Component {
 
 export default withRouter(connect(state => ({
   sidebar: state.sidebar,
+  user: state.user
 }))(Layout));

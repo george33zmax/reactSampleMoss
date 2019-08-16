@@ -32,7 +32,7 @@ class SidebarContent extends Component {
         </ul>
         <ul className="sidebar__block">
           <SidebarCategory title="Projects (Farms)" icon="sun">
-            <SidebarLink title="Page one" route="/pages/one" onClick={this.hideSidebar} />
+            <SidebarLink title="Project 1" route="/projects" onClick={this.hideSidebar} />
           </SidebarCategory>
         </ul>
       </div>

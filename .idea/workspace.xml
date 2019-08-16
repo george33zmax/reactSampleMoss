@@ -3,15 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b7c1af-8ebf-4b2f-9d32-cdf568a757d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fav.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/Router.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarProfile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LogIn/components/LogInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LogIn/components/LogInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/component/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/component/form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/containers/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/containers/account.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,6 +42,7 @@
   <component name="ProjectId" id="1PNxmL2oNabzMhkRFpmawT96knp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
@@ -37,7 +54,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$USER_HOME$/.nvm/versions/node/v10.16.2/lib/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -67,7 +84,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565728512269</updated>
-      <workItem from="1565728513410" duration="4395000" />
+      <workItem from="1565728513410" duration="17461000" />
+      <workItem from="1565888843371" duration="319000" />
+      <workItem from="1565893850888" duration="141000" />
+      <workItem from="1565959039300" duration="1823000" />
+      <workItem from="1565962715561" duration="725000" />
+      <workItem from="1565967178839" duration="949000" />
     </task>
     <servers />
   </component>
@@ -82,7 +104,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
