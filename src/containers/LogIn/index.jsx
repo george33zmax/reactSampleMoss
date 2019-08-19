@@ -1,26 +1,24 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import FacebookIcon from 'mdi-react/FacebookIcon';
-import GooglePlusIcon from 'mdi-react/GooglePlusIcon';
 import LogInForm from './components/LogInForm';
 import logo from '../../shared/img/logo/sunrise.png';
 import {useAuth0} from "../../react-auth0-wrapper";
 
 
 const LogIn = () => {
-  const {loading, user, isAuthenticated, loginWithRedirect, logout} = useAuth0();
+  const {loading, isAuthenticated} = useAuth0();
 
   console.log("loading", loading);
   console.log("isAuthenticated", isAuthenticated);
 
   if (loading){
     return (
-        <div>loading</div>
+        <div>{""}</div>
     )
   }
 
   if(isAuthenticated){
-    return(<Redirect to={"/pages/one"}/>)
+    return(<Redirect to={"projects/pages/one"}/>)
   }
 
   else {

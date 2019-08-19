@@ -20,7 +20,7 @@ class TopbarProfile extends PureComponent {
 
   render() {
     const {collapse} = this.state;
-    const {user} = this.props;
+    const {user, logout} = this.props;
 
     return (
       <div className="topbar__profile">
@@ -35,7 +35,7 @@ class TopbarProfile extends PureComponent {
             <TopbarMenuLink title="Page one" icon="list" path="/pages/one" />
             <TopbarMenuLink title="Page two" icon="inbox" path="/pages/two" />
             <div className="topbar__menu-divider" />
-            <TopbarMenuLink title="Log Out" icon="exit" path="/" />
+            <TopbarMenuLink logout={logout} title="Log Out" icon="exit" path="/" />
           </div>
         </Collapse>
       </div>

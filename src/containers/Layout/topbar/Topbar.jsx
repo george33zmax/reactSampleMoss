@@ -11,7 +11,7 @@ class Topbar extends PureComponent {
   };
 
   render() {
-    const { changeMobileSidebarVisibility, changeSidebarVisibility } = this.props;
+    const { changeMobileSidebarVisibility, changeSidebarVisibility, logout } = this.props;
 
     return (
       <div className="topbar">
@@ -24,7 +24,7 @@ class Topbar extends PureComponent {
             <Link className="topbar__logo" to="/projects" />
           </div>
           <div className="topbar__right">
-            <TopbarProfile />
+            <TopbarProfile logout={logout} />
           </div>
         </div>
       </div>

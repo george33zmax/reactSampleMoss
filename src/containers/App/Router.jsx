@@ -6,17 +6,13 @@ import MainWrapper from './MainWrapper';
 import LogIn from '../LogIn/index';
 import ExamplePageOne from '../Example/index';
 
-const Pages = () => (
-  <Switch>
-    <Route path="/pages/one" component={ExamplePageOne} />
-  </Switch>
-);
-
 const wrappedRoutes = () => (
   <div>
     <Layout />
     <div className="container__wrap">
-      <Route path="/projects" component={Pages} />
+        <Route path="/pages/one" component={ExamplePageOne} />
+        <Route path="/legend" component={ExamplePageOne} />
+        <Route path="/projects" component={ExamplePageOne} />
     </div>
   </div>
 );

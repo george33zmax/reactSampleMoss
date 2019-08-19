@@ -1,12 +1,15 @@
 import React from 'react';
 import { Card, CardBody, Col } from 'reactstrap';
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
-const ExampleCard = () => (
+const ExampleCard = (props) => (
+
   <Col md={12}>
     <Card>
       <CardBody>
         <div className="card__title">
-          <h5 className="bold-text">Example title</h5>
+          <h1 className="bold-text">{`Welcome ${props.user["name"]}`}</h1>
           <h5 className="subhead">Example subhead</h5>
         </div>
         <p>Your content here</p>
@@ -15,4 +18,6 @@ const ExampleCard = () => (
   </Col>
 );
 
-export default ExampleCard;
+export default withRouter(connect(state => ({
+    user: state.user,
+}))(ExampleCard));

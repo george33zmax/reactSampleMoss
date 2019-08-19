@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -18,10 +18,8 @@ const Layout = (props) => {
     const { dispatch } = props;
     console.log("user", user);
     dispatch(getUserInfo(user));
-
-    // setTimeout(()=>{
-    //   logout();
-    // },10000)
+  }else {
+   return(<Redirect to={"/"}/>)
   }
 
   const changeSidebarVisibilityF = () => {
@@ -50,12 +48,12 @@ const Layout = (props) => {
       layout: true,
       'layout--collapse': sidebar.collapse,
     });
-
     return (
       <div className={layoutClass}>
         <Topbar
-          changeMobileSidebarVisibility={changeMobileSidebarVisibilityF}
-          changeSidebarVisibility={changeSidebarVisibilityF}
+            logout={logout}
+            changeMobileSidebarVisibility={changeMobileSidebarVisibilityF}
+            changeSidebarVisibility={changeSidebarVisibilityF}
         />
         <Sidebar
           sidebar={sidebar}
