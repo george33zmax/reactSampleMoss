@@ -5,51 +5,46 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Topbar from './topbar/Topbar';
 import Sidebar from './sidebar/Sidebar';
-
+import {useAuth0} from "../../react-auth0-wrapper";
 import { changeThemeToDark, changeThemeToLight } from '../../redux/actions/themeActions';
 import { changeMobileSidebarVisibility, changeSidebarVisibility } from '../../redux/actions/sidebarActions';
+import {getUserInfo} from '../../redux/actions/userActions';
 import { SidebarProps } from '../../shared/prop-types/ReducerProps';
 
-class Layout extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    sidebar: SidebarProps.isRequired,
-  };
+const Layout = (props) => {
+  const {user, loading, logout} = useAuth0();
 
-  state = {
+  if (user){
+    const { dispatch } = props;
+    console.log("user", user);
+    dispatch(getUserInfo(user));
 
-  };
-
-  componentDidMount() {
-    const {user, history} = this.props;
-    console.log("layout", typeof user)
-    if (!user){
-      history.push("/");
-    }else history.push("/sihayuser")
+    // setTimeout(()=>{
+    //   logout();
+    // },10000)
   }
 
-  changeSidebarVisibility = () => {
-    const { dispatch } = this.props;
+  const changeSidebarVisibilityF = () => {
+    const { dispatch } = props;
     dispatch(changeSidebarVisibility());
   };
 
-  changeMobileSidebarVisibility = () => {
-    const { dispatch } = this.props;
+  const changeMobileSidebarVisibilityF = () => {
+    const { dispatch } = props;
     dispatch(changeMobileSidebarVisibility());
   };
 
-  changeToDark = () => {
-    const { dispatch } = this.props;
+  const changeToDark = () => {
+    const { dispatch } = props;
     dispatch(changeThemeToDark());
   };
 
-  changeToLight = () => {
-    const { dispatch } = this.props;
+  const changeToLight = () => {
+    const { dispatch } = props;
     dispatch(changeThemeToLight());
   };
 
-  render() {
-    const { sidebar } = this.props;
+    const { sidebar } = props;
 
     const layoutClass = classNames({
       layout: true,
@@ -59,21 +54,20 @@ class Layout extends Component {
     return (
       <div className={layoutClass}>
         <Topbar
-          changeMobileSidebarVisibility={this.changeMobileSidebarVisibility}
-          changeSidebarVisibility={this.changeSidebarVisibility}
+          changeMobileSidebarVisibility={changeMobileSidebarVisibilityF}
+          changeSidebarVisibility={changeSidebarVisibilityF}
         />
         <Sidebar
           sidebar={sidebar}
-          changeToDark={this.changeToDark}
-          changeToLight={this.changeToLight}
-          changeMobileSidebarVisibility={this.changeMobileSidebarVisibility}
+          changeToDark={changeToDark}
+          changeToLight={changeToLight}
+          changeMobileSidebarVisibility={changeMobileSidebarVisibility}
         />
       </div>
     );
-  }
-}
+};
 
 export default withRouter(connect(state => ({
   sidebar: state.sidebar,
-  user: state.user
+  user: state.user,
 }))(Layout));

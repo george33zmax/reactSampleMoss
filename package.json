@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://www.",
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.1.1",
     "bfj": "^6.1.1",
     "bootstrap": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
