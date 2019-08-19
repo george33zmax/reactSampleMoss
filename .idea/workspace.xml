@@ -4,13 +4,7 @@
     <list default="true" id="d2b7c1af-8ebf-4b2f-9d32-cdf568a757d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/App/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/Router.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Example/components/ExampleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/components/ExampleCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarMenuLink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarMenuLink.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/TopbarProfile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LogIn/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LogIn/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +35,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,13 +47,14 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/shared/img/logo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/config" />
       <recent name="$PROJECT_DIR$/src" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/shared/img/logo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -90,7 +85,7 @@
       <workItem from="1565959039300" duration="1823000" />
       <workItem from="1565962715561" duration="725000" />
       <workItem from="1565967178839" duration="10404000" />
-      <workItem from="1566227102121" duration="8466000" />
+      <workItem from="1566227102121" duration="8816000" />
     </task>
     <servers />
   </component>

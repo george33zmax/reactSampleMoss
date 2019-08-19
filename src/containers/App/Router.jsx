@@ -5,13 +5,14 @@ import MainWrapper from './MainWrapper';
 
 import LogIn from '../LogIn/index';
 import ExamplePageOne from '../Example/index';
+import Legend from '../../Legend/index';
 
 const wrappedRoutes = () => (
   <div>
     <Layout />
     <div className="container__wrap">
         <Route path="/pages/one" component={ExamplePageOne} />
-        <Route path="/legend" component={ExamplePageOne} />
+        <Route path="/legend" component={Legend} />
         <Route path="/projects" component={ExamplePageOne} />
     </div>
   </div>
