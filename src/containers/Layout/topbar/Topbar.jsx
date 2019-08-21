@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TopbarSidebarButton from './TopbarSidebarButton';
 import TopbarProfile from './TopbarProfile';
+import Legend from './LegendComponent';
 
 class Topbar extends PureComponent {
   static propTypes = {
@@ -24,6 +25,7 @@ class Topbar extends PureComponent {
             <Link className="topbar__logo" to="/projects" />
           </div>
           <div className="topbar__right">
+            <Legend />
             <TopbarProfile logout={logout} />
           </div>
         </div>

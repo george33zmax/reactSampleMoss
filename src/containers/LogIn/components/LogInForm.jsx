@@ -3,11 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {useAuth0} from "../../../react-auth0-wrapper";
 
 const LogInForm = () =>  {
-    const {loading, user, isAuthenticated, loginWithRedirect, logout} = useAuth0();
-
-    // if(isAuthenticated){
-    //   return(<Redirect to={"/pages/one"}/>)
-    // }
+    const {loginWithRedirect} = useAuth0();
 
       return (
           <form className="form" onSubmit={""}>
