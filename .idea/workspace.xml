@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b7c1af-8ebf-4b2f-9d32-cdf568a757d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/containers/Legend/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/Topbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LogIn/components/LogInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LogIn/components/LogInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Legend/components/ExampleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Legend/components/ExampleCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Legend/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/Router.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Legend/components/Legend.jsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,15 +53,16 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/config" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/containers/Layout/topbar" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/shared/img/logo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers" />
+      <recent name="$PROJECT_DIR$/src/config" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,7 +95,10 @@
       <workItem from="1565967178839" duration="10404000" />
       <workItem from="1566227102121" duration="8816000" />
       <workItem from="1566393684839" duration="2996000" />
-      <workItem from="1566400642547" duration="584000" />
+      <workItem from="1566400642547" duration="1963000" />
+      <workItem from="1566419750053" duration="114000" />
+      <workItem from="1566582330871" duration="594000" />
+      <workItem from="1566585657511" duration="533000" />
     </task>
     <servers />
   </component>

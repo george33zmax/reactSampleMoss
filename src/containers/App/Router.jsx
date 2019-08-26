@@ -5,7 +5,7 @@ import MainWrapper from './MainWrapper';
 
 import LogIn from '../LogIn/index';
 import ExamplePageOne from '../Example/index';
-import Legend from '../../Legend/index';
+import Legend from '../Legend/index';
 
 const wrappedRoutes = () => (
   <div>
