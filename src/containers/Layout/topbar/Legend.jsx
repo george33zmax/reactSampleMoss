@@ -65,7 +65,7 @@ export default class ModalComponent extends PureComponent {
 
     return (
       <div>
-        <LegendIcon onClick={this.toggle}/>
+        <LegendIcon className="topbar__icon" onClick={this.toggle} />
         {/*<Button color={color} onClick={this.toggle}>{btn}</Button>*/}
         <Modal
           isOpen={modal}

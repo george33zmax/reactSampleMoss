@@ -36,7 +36,6 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-smooth-scrollbar": "^8.0.6",
-    "react-svg-draw": "0.0.12",
     "react-svg-pan-zoom": "^3.2.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",

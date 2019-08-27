@@ -5,7 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Example/components/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/components/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Layout/topbar/Legend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/topbar/Legend.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Legend/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Legend/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Svg/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Svg/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,7 +105,7 @@
       <workItem from="1566419750053" duration="114000" />
       <workItem from="1566582330871" duration="594000" />
       <workItem from="1566585657511" duration="4098000" />
-      <workItem from="1566848372897" duration="11655000" />
+      <workItem from="1566848372897" duration="15110000" />
     </task>
     <servers />
   </component>
