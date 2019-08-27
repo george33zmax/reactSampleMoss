@@ -18,7 +18,8 @@ const Layout = (props) => {
     const { dispatch } = props;
     console.log("user", user);
     dispatch(getUserInfo(user));
-  }else {
+  }
+  else if (user && !loading){
    return(<Redirect to={"/"}/>)
   }
 
