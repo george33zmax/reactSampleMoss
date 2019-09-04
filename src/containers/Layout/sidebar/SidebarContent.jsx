@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SidebarLink from './SidebarLink';
 import SidebarCategory from './SidebarCategory';
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 class SidebarContent extends Component {
   static propTypes = {
@@ -9,6 +11,30 @@ class SidebarContent extends Component {
     changeToLight: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
   };
+
+  state = {
+    data: null,
+    loaded: false
+  };
+
+  async componentDidMount(){
+    const {socket} = this.props;
+    const {loaded} = this.state;
+
+    if (!loaded){
+      this.setState({loaded: true})
+      socket.emit("QueryData", {
+        type: "getAllFarms",
+        params: "aki params",
+        password: "aki password"
+      });
+    }
+
+    socket.on("getAllFarms", data => {
+      console.log("data Response", data);
+      this.setState({data: data});
+    })
+  }
 
   hideSidebar = () => {
     const { onClick } = this.props;
@@ -40,4 +66,6 @@ class SidebarContent extends Component {
   }
 }
 
-export default SidebarContent;
+export default withRouter(connect(state => ({
+  socket: state.socket
+}))(SidebarContent));

@@ -16,7 +16,6 @@ const Layout = (props) => {
 
   if (user){
     const { dispatch } = props;
-    console.log("user", user);
     dispatch(getUserInfo(user));
   }
   else if (user && !loading){
