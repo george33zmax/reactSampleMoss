@@ -45,32 +45,8 @@ export default class SVG extends React.PureComponent {
         const {farm} = this.props;
         const {fill, idClicked} = this.state;
 
-        let points = [];
-        let prePoints = [];
-
-        farm.forEach((row, i) =>{
-            const clear = row["points"].replace(/[{()}]/g, "");
-            const lst = clear.split(",");
-            if(!prePoints[i]){prePoints[i] = [];}
-            lst.forEach((ele) =>{
-                prePoints[i].push(Number(ele))
-            })
-        });
-
-        console.log("points", prePoints);
         const paths = [];
-        const test = [
-            169.846540683634,
-            0,
-            177.95648128463793,
-            0,
-            177.95648128463793,
-            1.0366246996822315,
-            169.846540683634,
-            1.0366246996822315
-        ];
-        prePoints[0] = test
-        prePoints.forEach((point, index) => {
+        farm.forEach((point, index) => {
             const color = idClicked.includes(index) ? "red" : fill;
             paths.push(
                 <polygon
