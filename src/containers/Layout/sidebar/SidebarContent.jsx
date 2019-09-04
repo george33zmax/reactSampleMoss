@@ -4,6 +4,7 @@ import SidebarLink from './SidebarLink';
 import SidebarCategory from './SidebarCategory';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import {setActiveProject} from "../../../redux/actions/projectActions";
 
 class SidebarContent extends Component {
   static propTypes = {
@@ -14,35 +15,45 @@ class SidebarContent extends Component {
 
   state = {
     data: null,
-    loaded: false
+    loaded: false,
   };
 
   async componentDidMount(){
-    const {socket} = this.props;
+    const {socket, project} = this.props;
     const {loaded} = this.state;
 
+    this.setState({project: project});
     if (!loaded){
-      this.setState({loaded: true})
+      this.setState({loaded: true});
       socket.emit("QueryData", {
         type: "getAllFarms",
-        params: "aki params",
+        params: [],
         password: "aki password"
       });
     }
 
     socket.on("getAllFarms", data => {
-      console.log("data Response", data);
       this.setState({data: data});
     })
   }
 
-  hideSidebar = () => {
-    const { onClick } = this.props;
-    onClick();
+  populateProjectId = (id) => {
+    const { dispatch } = this.props;
+    dispatch(setActiveProject(id));
+
   };
 
   render() {
-    const { changeToDark, changeToLight } = this.props;
+    const { data } = this.state;
+    const { changeToDark, changeToLight} = this.props;
+
+    let projects = [];
+    if (data){
+      data.forEach(project => {
+        projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
+      });
+    }
+
     return (
       <div className="sidebar__content">
         <ul className="sidebar__block">
@@ -58,7 +69,7 @@ class SidebarContent extends Component {
         </ul>
         <ul className="sidebar__block">
           <SidebarCategory title="Projects (Farms)" icon="sun">
-            <SidebarLink title="Northen Preserve" route="/projects" onClick={this.hideSidebar} />
+            {projects}
           </SidebarCategory>
         </ul>
       </div>
@@ -67,5 +78,6 @@ class SidebarContent extends Component {
 }
 
 export default withRouter(connect(state => ({
-  socket: state.socket
+  socket: state.socket,
+  project: state.project
 }))(SidebarContent));

@@ -1,5 +1,3 @@
-import { CHANGE_SIDEBAR_VISIBILITY } from "./sidebarActions";
-
 export const SAVE_USER_INFO = "SAVE_USER_INFO";
 
 export function getUserInfo(data) {

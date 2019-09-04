@@ -18,7 +18,7 @@ const LogIn = () => {
   }
 
   if(isAuthenticated){
-    return(<Redirect to={"projects/pages/one"}/>)
+    return(<Redirect to={"projects"}/>)
   }
 
   else {

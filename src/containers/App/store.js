@@ -4,7 +4,8 @@ import {
   sidebarReducer,
   themeReducer,
   socketReducer,
-  userInfoReducer
+  userInfoReducer,
+  activeProjectReducer
 } from "../../redux/reducers/index";
 
 const reducer = combineReducers({
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   theme: themeReducer,
   sidebar: sidebarReducer,
   socket: socketReducer,
-  user: userInfoReducer
+  user: userInfoReducer,
+  project: activeProjectReducer
 });
 
 const store = createStore(reducer);
