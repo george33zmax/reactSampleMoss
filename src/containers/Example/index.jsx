@@ -8,7 +8,7 @@ import SVG from '../Svg/index';
 class ExamplePage extends Component {
 
     state = {
-        data: null,
+        data: [],
         projectLocal: null
     };
 
@@ -32,11 +32,22 @@ class ExamplePage extends Component {
         this.setState({projectLocal: project})
     }
 
+    normalizeData(controllers) {
+
+        // get Min x && Max y
+        // controllers.forEach((controller) => {
+        //     controller.points.forEach((point) => {
+        //         minX = Math.min(minX, point.x)
+        //         maxY = Math.max(maxY, point.y)
+        //     })
+        // })
+    }
+
     render(){
         const {data, projectLocal} = this.state;
         const {project} = this.props;
 
-        console.log("data", data);
+        // console.log("data", data);
         console.log("project inside", project);
 
         if(project && project !== projectLocal){
@@ -50,7 +61,7 @@ class ExamplePage extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={farm}/>
+                        <SVG farm={data}/>
                     </Col>
                 </Row>
             </Container>

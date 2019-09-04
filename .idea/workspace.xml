@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b7c1af-8ebf-4b2f-9d32-cdf568a757d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Layout/sidebar/SidebarContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LogIn/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LogIn/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Svg/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Svg/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +104,7 @@
       <workItem from="1567000969425" duration="2344000" />
       <workItem from="1567100249327" duration="758000" />
       <workItem from="1567108847040" duration="4065000" />
-      <workItem from="1567600275431" duration="10389000" />
+      <workItem from="1567600275431" duration="17567000" />
     </task>
     <servers />
   </component>
