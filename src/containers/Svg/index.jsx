@@ -1,5 +1,6 @@
 import React from 'react';
 import {INITIAL_VALUE, ReactSVGPanZoom, TOOL_NONE} from 'react-svg-pan-zoom';
+import {Col, Row} from "reactstrap";
 
 export default class SVG extends React.PureComponent {
 
@@ -61,13 +62,16 @@ export default class SVG extends React.PureComponent {
         });
 
         return (
-            <div>
-                <div>
-                    {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.zoomOnViewerCenter()}>Zoom in</button>*/}
-                    {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitSelection()}>Zoom area 200x200</button>*/}
-                    <button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitToViewer()}>Fit</button>
+            <div className='main__content'>
+
+                <div className='main__btn'>
+                            {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.zoomOnViewerCenter()}>Zoom in</button>*/}
+                            {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitSelection()}>Zoom area 200x200</button>*/}
+                            <button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitToViewer()}>Fit</button>
                 </div>
-                <div>
+
+
+                <div className='main__graphic'>
                     <ReactSVGPanZoom
                         width={600} height={650}
                         ref={Viewer => this.Viewer = Viewer}

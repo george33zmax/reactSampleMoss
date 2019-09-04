@@ -64,7 +64,7 @@
   }
 
   background-color: #ffffff;
-  padding: 50px 60px;
+  padding: 50px 40px;
   max-width: 520px;
   width: 100%;
 }
@@ -201,7 +201,7 @@
 .account__head {
   margin-bottom: 30px;
   padding-left: 10px;
-  border-left: 4px solid $color-blue;
+  /*border-left: 4px solid $color-blue;*/
 }
 
 .account__logo {
@@ -249,4 +249,7 @@
 .account__title {
   padding: 20px 0 0 0;
   color: #fff;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  font-weight: 400;
 }

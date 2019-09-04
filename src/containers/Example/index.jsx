@@ -11,7 +11,7 @@ const ExamplePage = (props) => {
             <ExampleCard />
         </Row>
         <Row>
-            <Col md={4}>
+            <Col md={12}>
                 <SVG farm={farm}/>
             </Col>
         </Row>

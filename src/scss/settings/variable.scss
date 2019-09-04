@@ -2,7 +2,7 @@ $themes: (
   light: (
     colorBackground: white,
     colorBackgroundBody: #f2f4f7,
-    colorText: #646777,
+    colorText: #4e505d,
     colorTextAdditional: #646777,
     logoImg: url(../shared/img/logo/sunrise.png),
     colorHover: #fafbfe,
@@ -23,7 +23,7 @@ $themes: (
     logoImg: url(../shared/img/logo/sunrise.png),
     colorHover: #38373f,
     colorBorder: #333246,
-    colorIcon: #605f7b,
+    colorIcon: #FFC700,
     imgInvert: invert(100%),
     colorFieldsBorder: #33333a,
     colorBubble: rgba(68, 79, 97, 0.65),
@@ -50,6 +50,12 @@ $themes: (
 @function themed($key) {
   @return map-get($theme-map, $key);
 }
+
+$color-primary: #FFC700;
+$color-white: #fff;
+$color-text: #4e505d;
+$color-icon: #605f7b;
+
 
 $color-accent: #4ce1b6;
 $color-accent-hover: darken($color-accent, 10%);
