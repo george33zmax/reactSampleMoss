@@ -1,23 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import ExampleCard from './components/ExampleCard';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SVG from '../Svg/index';
 
-<<<<<<< HEAD
-const ExamplePage = (props) => {
-    return(<Container className="dashboard">
-        <Row>
-            <ExampleCard />
-        </Row>
-        <Row>
-            <Col md={12}>
-                <SVG farm={farm}/>
-            </Col>
-        </Row>
-    </Container>);
-=======
 class ExamplePage extends Component {
 
     state = {
@@ -63,17 +50,17 @@ class ExamplePage extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={data}/>
+                        <SVG farm={farm}/>
                     </Col>
                 </Row>
             </Container>
         );
     }
->>>>>>> parent of 3020e54d... before merge
 };
 
 
 export default withRouter(connect(state => ({
+    socket: state.socket,
     user: state.user,
 }))(ExamplePage));
 
