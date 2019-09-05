@@ -36,7 +36,7 @@ class ExamplePage extends Component {
         const {data, projectLocal} = this.state;
         const {project} = this.props;
 
-        console.log("data", data);
+        console.log("data", data[0]);
         console.log("project inside", project);
 
         if(project && project !== projectLocal){
@@ -50,7 +50,7 @@ class ExamplePage extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={data}/>
+                        <SVG farm={farm}/>
                     </Col>
                 </Row>
             </Container>
