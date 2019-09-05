@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SVG from '../Svg/index';
 
+<<<<<<< HEAD
 const ExamplePage = (props) => {
     return(<Container className="dashboard">
         <Row>
@@ -16,6 +17,59 @@ const ExamplePage = (props) => {
             </Col>
         </Row>
     </Container>);
+=======
+class ExamplePage extends Component {
+
+    state = {
+        data: [],
+        projectLocal: null
+    };
+
+    componentDidMount(){
+        const {socket} = this.props;
+
+        socket.on("getController", data => {
+            this.setState({data: data});
+        });
+    }
+
+    getData() {
+        const {project, socket} = this.props;
+
+        socket.emit("QueryData", {
+            type: "getController",
+            params: [project],
+            password: "aki password"
+        });
+
+        this.setState({projectLocal: project})
+    }
+
+    render(){
+        const {data, projectLocal} = this.state;
+        const {project} = this.props;
+
+        console.log("data", data);
+        console.log("project inside", project);
+
+        if(project && project !== projectLocal){
+            this.getData()
+        }
+
+        return(
+            <Container className="dashboard">
+                <Row>
+                    <ExampleCard />
+                </Row>
+                <Row>
+                    <Col md={4}>
+                        <SVG farm={data}/>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
+>>>>>>> parent of 3020e54d... before merge
 };
 
 

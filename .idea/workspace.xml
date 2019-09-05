@@ -533,6 +533,7 @@
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/containers/Legend/components/ExampleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Legend/components/ExampleCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Svg/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Svg/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/base/typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/base/typography.scss" afterDir="false" />
@@ -542,6 +543,9 @@
       <change beforePath="$PROJECT_DIR$/src/scss/component/topbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/component/topbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/containers/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/containers/account.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/settings/variable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/variable.scss" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/containers/Svg/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Svg/index.jsx" afterDir="false" />
+>>>>>>> parent of 3020e54d... before merge
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -842,7 +846,11 @@
       <workItem from="1567000969425" duration="2344000" />
       <workItem from="1567100249327" duration="758000" />
       <workItem from="1567108847040" duration="4065000" />
+<<<<<<< HEAD
       <workItem from="1567607852116" duration="4561000" />
+=======
+      <workItem from="1567600275431" duration="19603000" />
+>>>>>>> parent of 3020e54d... before merge
     </task>
     <servers />
   </component>
