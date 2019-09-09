@@ -121,7 +121,7 @@
     top: 0;
     height: 100%;
     width: 2px;
-    background: $color-accent;
+    background: $color-primary;
     opacity: 0;
     transition: all 0.3s;
   }
@@ -160,7 +160,7 @@
   margin-right: 10px;
   font-size: 13px;
   line-height: 13px;
-  color: #b1c3c8;
+  color: $color-icon;
 }
 
 .sidebar__submenu {
@@ -207,7 +207,7 @@
   line-height: 14px;
   opacity: 1;
   transition: opacity 0.5s 0.2s, transform 0.3s;
-  color: $color-gray;
+  color: $color-icon;
 
 }
 

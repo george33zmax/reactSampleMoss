@@ -156,32 +156,40 @@
   }
 
   &.btn-primary {
-    background-color: $color-blue;
-    border-color: $color-blue;
+    background-color: $color-white;
+    border-color: $color-white;
+    border: $color-primary 3px solid;
+    color: $color-text;
+    text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+
 
     &:before {
-      background-color: $color-blue-hover;
+      background-color: $color-primary;
     }
 
     &:hover, &:focus, &:active, &:active:focus {
-      border-color: $color-blue-hover;
+      border-color: $color-primary;
     }
   }
 
   &.btn-outline-primary {
-    color: $color-blue;
-    border-color: $color-blue;
+    color: $color-primary;
+    border-color: $color-primary;
 
     p {
       color: $color-blue;
     }
 
     svg {
-      fill: $color-blue;
+      fill: $color-primary;
     }
 
     &:before {
-      background-color: $color-blue;
+      background-color: $color-primary;
     }
   }
 
