@@ -50,7 +50,7 @@ class ExamplePage extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={data}/>
+                        <SVG farm={farm}/>
                     </Col>
                 </Row>
             </Container>
