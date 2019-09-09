@@ -61,7 +61,7 @@ class ExamplePage extends Component {
 
 export default withRouter(connect(state => ({
     socket: state.socket,
-    user: state.user,
+    project: state.project
 }))(ExamplePage));
 
 // farm test
