@@ -73,12 +73,12 @@ export default class SVG extends React.PureComponent {
 
                 <div className='main__graphic'>
                     <ReactSVGPanZoom
-                        width={600} height={650}
+                        width={800} height={650}
                         ref={Viewer => this.Viewer = Viewer}
                         tool={this.state.tool} onChangeTool={tool => this.changeTool(tool)}
                         value={this.state.value} onChangeValue={value => this.changeValue(value)}
                     >
-                        <svg width={400} height={460}>
+                        <svg width={800} height={800}>
                             <g fillOpacity=".5">
                                 {paths}
                             </g>
