@@ -37,11 +37,11 @@ class ExamplePage extends Component {
         const {project} = this.props;
 
         console.log("project inside", project);
+        const farm =  data && data["points"] ? data["points"] : [];
 
         if(project && project !== projectLocal){
             this.getData()
         }
-
         return(
             <Container className="dashboard">
                 <Row>
@@ -49,7 +49,7 @@ class ExamplePage extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={data}/>
+                        <SVG farm={farm}/>
                     </Col>
                 </Row>
             </Container>

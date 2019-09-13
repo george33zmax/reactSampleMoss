@@ -4,7 +4,6 @@
     <list default="true" id="d2b7c1af-8ebf-4b2f-9d32-cdf568a757d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Example/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Example/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Svg/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Svg/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
