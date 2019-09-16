@@ -4,7 +4,7 @@ import Layout from '../Layout/index';
 import MainWrapper from './MainWrapper';
 
 import LogIn from '../LogIn/index';
-import ExamplePageOne from '../Example/index';
+import ExamplePageOne from '../Farm/index';
 import Legend from '../Legend/index';
 import SVG from '../Svg/index';
 

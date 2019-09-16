@@ -5,11 +5,11 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import SVG from '../Svg/index';
 
-class ExamplePage extends Component {
+class Farm extends Component {
 
     state = {
         data: [],
-        projectLocal: null
+        projectLocal: null,
     };
 
     componentDidMount(){
@@ -61,4 +61,4 @@ class ExamplePage extends Component {
 export default withRouter(connect(state => ({
     socket: state.socket,
     project: state.project
-}))(ExamplePage));
+}))(Farm));

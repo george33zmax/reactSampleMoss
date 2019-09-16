@@ -16,6 +16,7 @@ class SidebarContent extends Component {
   state = {
     data: null,
     loaded: false,
+    phases: []
   };
 
   async componentDidMount(){
@@ -30,8 +31,27 @@ class SidebarContent extends Component {
         params: [],
         password: "aki password"
       });
+      socket.emit("QueryData", {
+        type: "getPhases",
+        params: [],
+        password: "aki password"
+      });
+      socket.emit("QueryData", {
+        type: "getSteps",
+        params: [project],
+        password: "aki password"
+      });
     }
 
+    socket.on("getPhases", data => {
+      let phases = [];
+      data.forEach((option) => {
+        phases.push(option["name"]);
+      });
+      phases.unshift("Overall");
+      phases.push("Refusal");
+      this.setState({phases: phases});
+    });
     socket.on("getAllFarms", data => {
       this.setState({data: data});
     })
@@ -44,14 +64,28 @@ class SidebarContent extends Component {
   };
 
   render() {
-    const { data } = this.state;
-    const { changeToDark, changeToLight} = this.props;
+    const { data, phases } = this.state;
+    const { changeToDark, changeToLight, project} = this.props;
 
+    let phasesDisplay = [];
+    if (phases){
+      if (project){
+        phases.forEach(phase => {
+          phasesDisplay.push(<SidebarLink title={phase} />)
+        });
+      }else {
+          phasesDisplay.push(<SidebarLink title={"Select a Project"} />)
+      }
+    }
     let projects = [];
     if (data){
       data.forEach(project => {
         projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
       });
+    }
+    let steps = [];
+    if(steps){
+
     }
 
     return (
@@ -70,6 +104,12 @@ class SidebarContent extends Component {
         <ul className="sidebar__block">
           <SidebarCategory title="Projects (Farms)" icon="sun">
             {projects}
+          </SidebarCategory>
+          <SidebarCategory title="Phase" icon="cog">
+            {phasesDisplay}
+          </SidebarCategory>
+          <SidebarCategory title="Step" icon="sort-amount-asc">
+            {steps}
           </SidebarCategory>
         </ul>
       </div>
