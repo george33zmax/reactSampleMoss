@@ -36,16 +36,8 @@ class SidebarContent extends Component {
         params: [],
         password: "aki password"
       });
-      socket.emit("QueryData", {
-        type: "getPhases",
-        params: [],
-        password: "aki password"
-      });
-      socket.emit("QueryData", {
-        type: "getSteps",
-        params: [currentProject],
-        password: "aki password"
-      });
+
+      this.loadProjectData(socket, currentProject);
     }
 
     socket.on("getPhases", data => {
@@ -77,10 +69,24 @@ class SidebarContent extends Component {
     });
   }
 
+  loadProjectData = (socket, currentProject) => {
+    socket.emit("QueryData", {
+      type: "getPhases",
+      params: [],
+      password: "aki password"
+    });
+    socket.emit("QueryData", {
+      type: "getSteps",
+      params: [currentProject],
+      password: "aki password"
+    });
+  };
+
   populateProjectId = (id) => {
-    const { dispatch } = this.props;
+    const { dispatch, socket } = this.props;
     dispatch(setActiveProject(id));
     localStorage.setItem("currentProject", id);
+    this.loadProjectData(socket,id)
   };
 
   handlePhase = (e, phase) => {
@@ -92,6 +98,13 @@ class SidebarContent extends Component {
     const { data, phases, steps, activePhase, activeStep } = this.state;
     const { changeToDark, changeToLight, project} = this.props;
 
+    let projects = [];
+    if (data){
+      data.forEach(project => {
+        projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
+      });
+    }
+
     let phasesDisplay = [];
     if (phases){
       if (project){
@@ -99,15 +112,10 @@ class SidebarContent extends Component {
           phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>this.handlePhase(e, phase)}/>)
         });
       }else {
-          phasesDisplay.push(<SidebarLink title={"Select a Project"} />)
+        phasesDisplay.push(<SidebarLink title={"Select a Project"} />)
       }
     }
-    let projects = [];
-    if (data){
-      data.forEach(project => {
-        projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
-      });
-    }
+
     let stepsNormalized = [];
     if(steps && steps[activePhase]){
       steps[activePhase].forEach(step => {
