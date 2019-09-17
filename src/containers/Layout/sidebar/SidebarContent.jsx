@@ -16,14 +16,19 @@ class SidebarContent extends Component {
   state = {
     data: null,
     loaded: false,
-    phases: []
+    phases: [],
+    steps: null,
+    activePhase: "Overall",
+    activeStep: "Overall"
   };
 
   async componentDidMount(){
-    const {socket, project} = this.props;
+    const {socket} = this.props;
     const {loaded} = this.state;
+    const currentProject = localStorage.getItem("currentProject");
+    this.setState({project: currentProject});
+    this.populateProjectId(currentProject);
 
-    this.setState({project: project});
     if (!loaded){
       this.setState({loaded: true});
       socket.emit("QueryData", {
@@ -38,7 +43,7 @@ class SidebarContent extends Component {
       });
       socket.emit("QueryData", {
         type: "getSteps",
-        params: [project],
+        params: [currentProject],
         password: "aki password"
       });
     }
@@ -48,30 +53,50 @@ class SidebarContent extends Component {
       data.forEach((option) => {
         phases.push(option["name"]);
       });
-      phases.unshift("Overall");
-      phases.push("Refusal");
+      // phases.unshift("Overall");
+      // phases.push("Refusal");
       this.setState({phases: phases});
     });
     socket.on("getAllFarms", data => {
       this.setState({data: data});
-    })
+    });
+    socket.on("getSteps", data => {
+      const phase = {
+        "Overall": ["Select a Phase"],
+        "Mechanical": [],
+        "Table Electrical": [],
+        "Electrical Array": []
+      };
+      data.forEach(ele => {
+        if(phase[ele["phase"]]){
+          const step = `${ele["component_type"]} ${ele["step"]}`;
+          phase[ele["phase"]].push(step)
+        }
+      });
+      this.setState({steps: phase});
+    });
   }
 
   populateProjectId = (id) => {
     const { dispatch } = this.props;
     dispatch(setActiveProject(id));
+    localStorage.setItem("currentProject", id);
+  };
 
+  handlePhase = (e, phase) => {
+    e.preventDefault();
+    this.setState({activePhase: phase})
   };
 
   render() {
-    const { data, phases } = this.state;
+    const { data, phases, steps, activePhase, activeStep } = this.state;
     const { changeToDark, changeToLight, project} = this.props;
 
     let phasesDisplay = [];
     if (phases){
       if (project){
         phases.forEach(phase => {
-          phasesDisplay.push(<SidebarLink title={phase} />)
+          phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>this.handlePhase(e, phase)}/>)
         });
       }else {
           phasesDisplay.push(<SidebarLink title={"Select a Project"} />)
@@ -83,9 +108,14 @@ class SidebarContent extends Component {
         projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
       });
     }
-    let steps = [];
-    if(steps){
-
+    let stepsNormalized = [];
+    if(steps && steps[activePhase]){
+      steps[activePhase].forEach(step => {
+        stepsNormalized.push(<SidebarLink title={step} onClick={(e)=>{
+          e.preventDefault();
+          this.setState({activeStep: step});
+        }}/>);
+      });
     }
 
     return (
@@ -105,11 +135,11 @@ class SidebarContent extends Component {
           <SidebarCategory title="Projects (Farms)" icon="sun">
             {projects}
           </SidebarCategory>
-          <SidebarCategory title="Phase" icon="cog">
+          <SidebarCategory title={`Phase | ${activePhase}`} icon="cog">
             {phasesDisplay}
           </SidebarCategory>
-          <SidebarCategory title="Step" icon="sort-amount-asc">
-            {steps}
+          <SidebarCategory title={`Step | ${activeStep}`} icon="sort-amount-asc">
+            {stepsNormalized}
           </SidebarCategory>
         </ul>
       </div>

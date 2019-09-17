@@ -7,13 +7,13 @@ export default class SidebarCategory extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string,
-    isNew: PropTypes.bool,
+    isActive: PropTypes.bool,
     children: PropTypes.arrayOf(PropTypes.element).isRequired,
   };
 
   static defaultProps = {
     icon: '',
-    isNew: false,
+    isActive: false,
   };
 
   constructor() {
@@ -29,7 +29,7 @@ export default class SidebarCategory extends Component {
 
   render() {
     const {
-      title, icon, isNew, children,
+      title, icon, isActive, children,
     } = this.props;
     const { collapse } = this.state;
     const categoryClass = classNames({
@@ -42,7 +42,7 @@ export default class SidebarCategory extends Component {
         <button type="button" className="sidebar__link sidebar__category" onClick={this.toggle}>
           {icon ? <span className={`sidebar__link-icon lnr lnr-${icon}`} /> : ''}
           <p className="sidebar__link-title">{title}
-            {isNew && <span className="sidebar__category-new" />}
+            {isActive && <span className="sidebar__category-new" />}
           </p>
           <span className="sidebar__category-icon lnr lnr-chevron-right" />
         </button>
