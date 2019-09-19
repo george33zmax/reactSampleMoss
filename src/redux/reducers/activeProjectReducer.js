@@ -1,6 +1,6 @@
 import { ACTIVATE_PROJECT } from "../actions/projectActions";
 
-let activeProject = 0;
+let activeProject = null;
 
 export default function(state = activeProject, action) {
   switch (action.type) {

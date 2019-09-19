@@ -5,6 +5,7 @@ import SidebarCategory from './SidebarCategory';
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {setActiveProject} from "../../../redux/actions/projectActions";
+import {setActiveController} from "../../../redux/actions/controllerActions";
 
 class SidebarContent extends Component {
   static propTypes = {
@@ -14,7 +15,8 @@ class SidebarContent extends Component {
   };
 
   state = {
-    data: null,
+    allProjects: null,
+    controllerData: null,
     loaded: false,
     phases: [],
     steps: null,
@@ -23,11 +25,14 @@ class SidebarContent extends Component {
   };
 
   async componentDidMount(){
-    const {socket} = this.props;
+    const {socket, project, dispatch} = this.props;
     const {loaded} = this.state;
+
     const currentProject = localStorage.getItem("currentProject");
-    this.setState({project: currentProject});
-    this.populateProjectId(currentProject);
+    console.log("currentProject", currentProject);
+    if (!project && currentProject){
+      this.populateProjectId(currentProject);
+    }
 
     if (!loaded){
       this.setState({loaded: true});
@@ -36,10 +41,16 @@ class SidebarContent extends Component {
         params: [],
         password: "aki password"
       });
-
-      this.loadProjectData(socket, currentProject);
+      socket.emit("QueryData", {
+        type: "getPhases",
+        params: [],
+        password: "aki password"
+      });
     }
 
+    socket.on("getAllFarms", data => {
+      this.setState({allProjects: data});
+    });
     socket.on("getPhases", data => {
       let phases = [];
       data.forEach((option) => {
@@ -48,9 +59,6 @@ class SidebarContent extends Component {
       // phases.unshift("Overall");
       // phases.push("Refusal");
       this.setState({phases: phases});
-    });
-    socket.on("getAllFarms", data => {
-      this.setState({data: data});
     });
     socket.on("getSteps", data => {
       const phase = {
@@ -67,14 +75,13 @@ class SidebarContent extends Component {
       });
       this.setState({steps: phase});
     });
+    socket.on("getController", data => {
+      dispatch(setActiveController(data));
+      this.setState({controllerData: data});
+    });
   }
 
-  loadProjectData = (socket, currentProject) => {
-    socket.emit("QueryData", {
-      type: "getPhases",
-      params: [],
-      password: "aki password"
-    });
+  loadProjectSteps = (socket, currentProject) => {
     socket.emit("QueryData", {
       type: "getSteps",
       params: [currentProject],
@@ -85,8 +92,18 @@ class SidebarContent extends Component {
   populateProjectId = (id) => {
     const { dispatch, socket } = this.props;
     dispatch(setActiveProject(id));
+    this.getControllerData(id);
     localStorage.setItem("currentProject", id);
-    this.loadProjectData(socket,id)
+    this.loadProjectSteps(socket,id)
+  };
+
+  getControllerData = (projectID) => {
+    const {socket} = this.props;
+    socket.emit("QueryData", {
+      type: "getController",
+      params: [projectID],
+      password: "aki password"
+    });
   };
 
   handlePhase = (e, phase) => {
@@ -95,25 +112,21 @@ class SidebarContent extends Component {
   };
 
   render() {
-    const { data, phases, steps, activePhase, activeStep } = this.state;
-    const { changeToDark, changeToLight, project} = this.props;
+    const { allProjects, phases, steps, activePhase, activeStep } = this.state;
+    const { changeToDark, changeToLight} = this.props;
 
     let projects = [];
-    if (data){
-      data.forEach(project => {
+    if (allProjects){
+      allProjects.forEach(project => {
         projects.push(<SidebarLink title={project["name"]}  route={`/projects/${+project["id"]}`} onClick={()=>this.populateProjectId(project["id"])} />)
       });
     }
 
     let phasesDisplay = [];
     if (phases){
-      if (project){
-        phases.forEach(phase => {
-          phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>this.handlePhase(e, phase)}/>)
-        });
-      }else {
-        phasesDisplay.push(<SidebarLink title={"Select a Project"} />)
-      }
+      phases.forEach(phase => {
+        phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>this.handlePhase(e, phase)}/>)
+      });
     }
 
     let stepsNormalized = [];
@@ -124,7 +137,7 @@ class SidebarContent extends Component {
           this.setState({activeStep: step});
         }}/>);
       });
-    }
+    }else stepsNormalized.push(<SidebarLink title={"Select a Project"}/>);
 
     return (
       <div className="sidebar__content">
@@ -157,5 +170,5 @@ class SidebarContent extends Component {
 
 export default withRouter(connect(state => ({
   socket: state.socket,
-  project: state.project
+  project: state.project,
 }))(SidebarContent));

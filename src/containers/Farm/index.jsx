@@ -9,39 +9,18 @@ class Farm extends Component {
 
     state = {
         data: [],
-        projectLocal: null,
     };
 
     componentDidMount(){
-        const {socket} = this.props;
 
-        socket.on("getController", data => {
-            this.setState({data: data});
-        });
-    }
-
-    getData() {
-        const {project, socket} = this.props;
-
-        socket.emit("QueryData", {
-            type: "getController",
-            params: [project],
-            password: "aki password"
-        });
-
-        this.setState({projectLocal: project})
     }
 
     render(){
-        const {data, projectLocal} = this.state;
-        const {project} = this.props;
+        const {project, controllerData} = this.props;
 
         console.log("project inside", project);
-        const farm =  data && data["points"] ? data["points"] : [];
+        const farm =  controllerData && controllerData["points"] ? controllerData["points"] : [];
 
-        if(project && project !== projectLocal){
-            this.getData()
-        }
         return(
             <Container className="dashboard">
                 <Row>
@@ -60,5 +39,6 @@ class Farm extends Component {
 
 export default withRouter(connect(state => ({
     socket: state.socket,
-    project: state.project
+    project: state.project,
+    controllerData: state.controllerData
 }))(Farm));
