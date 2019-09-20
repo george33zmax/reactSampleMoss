@@ -56,24 +56,27 @@ class SidebarContent extends Component {
       data.forEach((option) => {
         phases.push(option["name"]);
       });
-      // phases.unshift("Overall");
+      phases.unshift("Overall");
       // phases.push("Refusal");
       this.setState({phases: phases});
     });
     socket.on("getSteps", data => {
       const phase = {
-        "Overall": ["Select a Phase"],
+        "Overall": [],
         "Mechanical": [],
         "Table Electrical": [],
         "Electrical Array": []
       };
       data.forEach(ele => {
         if(phase[ele["phase"]]){
-          const step = `${ele["component_type"]} ${ele["step"]}`;
-          phase[ele["phase"]].push(step)
+          const firstW = ele["component_type"] ? ele["component_type"] : ele["description"];
+          const step = `${firstW} ${ele["step"]}`;
+          phase[ele["phase"]].push(step);
+          phase["Overall"].push(step);
         }
       });
       this.setState({steps: phase});
+      console.log("total steps overall", phase["Overall"].length)
     });
     socket.on("getController", data => {
       dispatch(setActiveController(data));
@@ -106,11 +109,6 @@ class SidebarContent extends Component {
     });
   };
 
-  handlePhase = (e, phase) => {
-    e.preventDefault();
-    this.setState({activePhase: phase})
-  };
-
   render() {
     const { allProjects, phases, steps, activePhase, activeStep } = this.state;
     const { changeToDark, changeToLight} = this.props;
@@ -123,13 +121,19 @@ class SidebarContent extends Component {
     }
 
     let phasesDisplay = [];
+    // console.log("phases", phases);
     if (phases){
       phases.forEach(phase => {
-        phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>this.handlePhase(e, phase)}/>)
+        phasesDisplay.push(<SidebarLink title={phase} onClick={(e)=>{
+            e.preventDefault();
+            this.setState({activePhase: phase});
+          }
+        }/>)
       });
     }
 
     let stepsNormalized = [];
+    // console.log("steps", steps);
     if(steps && steps[activePhase]){
       steps[activePhase].forEach(step => {
         stepsNormalized.push(<SidebarLink title={step} onClick={(e)=>{
