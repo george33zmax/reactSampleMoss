@@ -67,6 +67,7 @@ class SidebarContent extends Component {
         "Table Electrical": [],
         "Electrical Array": []
       };
+      console.log("data Steps", data)
       data.forEach(ele => {
         if(phase[ele["phase"]]){
           const firstW = ele["component_type"] ? ele["component_type"] : ele["description"];
@@ -76,7 +77,7 @@ class SidebarContent extends Component {
         }
       });
       this.setState({steps: phase});
-      console.log("total steps overall", phase["Overall"].length)
+      // console.log("total steps overall", phase["Overall"].length)
     });
     socket.on("getController", data => {
       dispatch(setActiveController(data));
