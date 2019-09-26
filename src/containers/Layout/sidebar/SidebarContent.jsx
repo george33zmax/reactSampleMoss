@@ -21,14 +21,14 @@ class SidebarContent extends Component {
     phases: [],
     steps: null,
     activePhase: "Overall",
-    activeStep: "Overall"
+    activeStep: "Overall",
   };
 
   async componentDidMount(){
     const {socket, project, dispatch} = this.props;
     const {loaded} = this.state;
-
     const currentProject = localStorage.getItem("currentProject");
+    const userSessionToken = localStorage.getItem("userSessionToken");
     console.log("currentProject", currentProject);
     if (!project && currentProject){
       this.populateProjectId(currentProject);
@@ -39,12 +39,12 @@ class SidebarContent extends Component {
       socket.emit("QueryData", {
         type: "getAllFarms",
         params: [],
-        password: "aki password"
+        password: userSessionToken
       });
       socket.emit("QueryData", {
         type: "getPhases",
         params: [],
-        password: "aki password"
+        password: userSessionToken
       });
     }
 
@@ -85,28 +85,29 @@ class SidebarContent extends Component {
     });
   }
 
-  loadProjectSteps = (socket, currentProject) => {
+  loadProjectSteps = (socket, currentProject, userSessionToken) => {
     socket.emit("QueryData", {
       type: "getSteps",
       params: [currentProject],
-      password: "aki password"
+      password: userSessionToken
     });
   };
 
   populateProjectId = (id) => {
     const { dispatch, socket } = this.props;
+    const userSessionToken = localStorage.getItem("userSessionToken");
     dispatch(setActiveProject(id));
-    this.getControllerData(id);
+    this.getControllerData(id, userSessionToken);
     localStorage.setItem("currentProject", id);
-    this.loadProjectSteps(socket,id)
+    this.loadProjectSteps(socket,id, userSessionToken)
   };
 
-  getControllerData = (projectID) => {
+  getControllerData = (projectID, userSessionToken) => {
     const {socket} = this.props;
     socket.emit("QueryData", {
       type: "getController",
       params: [projectID],
-      password: "aki password"
+      password: userSessionToken
     });
   };
 

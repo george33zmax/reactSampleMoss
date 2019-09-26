@@ -13,7 +13,10 @@ export default class TopbarMenuLinks extends PureComponent {
     const { title, icon, path, logout } = this.props;
 
     return (
-      <Link  onClick={()=>logout()} className="topbar__link" to={path}>
+      <Link  onClick={()=>{
+        localStorage.removeItem("userSessionToken");
+        logout();
+      }} className="topbar__link" to={path}>
         <span className={`topbar__link-icon lnr lnr-${icon}`} />
         <p className="topbar__link-title">{title}</p>
       </Link>

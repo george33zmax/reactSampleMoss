@@ -12,10 +12,11 @@ import {getUserInfo} from '../../redux/actions/userActions';
 import { SidebarProps } from '../../shared/prop-types/ReducerProps';
 
 const Layout = (props) => {
-  const {user, loading, logout} = useAuth0();
+  const {user, loading, logout, userToken} = useAuth0();
 
   if (user){
     const { dispatch } = props;
+    localStorage.setItem("userSessionToken", userToken);
     dispatch(getUserInfo(user));
   }
   else if (user && !loading){
