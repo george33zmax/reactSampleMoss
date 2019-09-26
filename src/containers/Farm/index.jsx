@@ -46,9 +46,8 @@ class Farm extends Component {
     render(){
         const {project, controllerData} = this.props;
 
-        // console.log("project inside", project);
         console.log("controllerData", controllerData);
-        const farm =  controllerData && controllerData["points"] ? controllerData["points"] : [];
+        const farmData =  controllerData && controllerData["points"] && controllerData["pointsIds"] ? controllerData : false;
 
         return(
             <Container className="dashboard">
@@ -57,7 +56,7 @@ class Farm extends Component {
                 </Row>
                 <Row>
                     <Col md={4}>
-                        <SVG farm={farm}/>
+                        <SVG farm={farmData}/>
                     </Col>
                 </Row>
             </Container>
