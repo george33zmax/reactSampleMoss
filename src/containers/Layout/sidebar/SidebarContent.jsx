@@ -6,6 +6,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {setActiveProject} from "../../../redux/actions/projectActions";
 import {setActiveController} from "../../../redux/actions/controllerActions";
+import {setActiveColors} from "../../../redux/actions/colorActions";
 
 class SidebarContent extends Component {
   static propTypes = {
@@ -82,6 +83,12 @@ class SidebarContent extends Component {
     socket.on("getController", data => {
       dispatch(setActiveController(data));
       this.setState({controllerData: data});
+    });
+
+    socket.on("getColors", data => {
+      if (data){
+        dispatch(setActiveColors(data))
+      }
     });
   }
 

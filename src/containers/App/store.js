@@ -6,7 +6,8 @@ import {
   socketReducer,
   userInfoReducer,
   activeProjectReducer,
-  controllerReducer
+  controllerReducer,
+  colorReducer
 } from "../../redux/reducers/index";
 
 const reducer = combineReducers({
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   socket: socketReducer,
   user: userInfoReducer,
   project: activeProjectReducer,
-  controllerData: controllerReducer
+  controllerData: controllerReducer,
+  colorData: colorReducer
 });
 
 const store = createStore(reducer);
