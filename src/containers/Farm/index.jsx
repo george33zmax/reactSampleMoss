@@ -17,10 +17,6 @@ class Farm extends Component {
 
     render(){
         const {project, controllerData} = this.props;
-
-
-
-        console.log("controllerData", controllerData);
         const farmData =  controllerData && controllerData["points"] && controllerData["pointsIds"] ? controllerData : false;
 
         return(

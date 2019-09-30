@@ -73,73 +73,23 @@ class SVG extends React.PureComponent {
         this.setState({idClicked: [...this.state.idClicked, id]})
     }
 
+    // handle long press
+
 
     render() {
         const {farm, colorData} = this.props;
         const {fill, idClicked} = this.state;
 
-        console.log("colorData", colorData);
+        // console.log("colorData", colorData);
 
         const paths = [];
         const pointsData = farm ? farm : false;
 
-        function renderPointsData(withColor) {
-
-            pointsData["points"].forEach((point, index) => {
-
-                let color = null;
-                if (withColor){
-                    // render with color
-                    const id = pointsData["pointsIds"][index];
-                    if(colorData[id] && index === 0){
-                        alert(colorData[id])
-                    }
-                }else {
-                    color = idClicked.includes(index) ? "red" : fill;
-                }
-
-                paths.push(
-                    <polygon
-                        id={pointsData["pointsIds"][index]}
-                        onClick={()=>{
-                            const id = pointsData["pointsIds"][index];
-                            alert(id);
-                            this.handleClick(id)
-                        }}
-                        points={point}
-                        style={{
-                            fill: color, stroke:"black", strokeWidth:0.2
-                        }}
-                    />
-                )
-            });
-        }
         if (pointsData){
-            pointsData["points"].forEach((point, index) => {
-                const color = idClicked.includes(index) ? "red" : fill;
-                paths.push(
-                    <polygon
-                        id={pointsData["pointsIds"][index]}
-                        onClick={()=>{
-                            const id = pointsData["pointsIds"][index];
-                            alert(id);
-                            this.handleClick(id)
-                        }}
-                        points={point}
-                        style={{
-                            fill: color, stroke:"black", strokeWidth:0.2
-                        }}
-                    />
-                )
-            });
-        }
-        // Do when colorData is added
-        if (pointsData && colorData){
             pointsData["points"].forEach((point, index) => {
 
                 let color = null;
                 if (colorData){
-                    // render with color
                     const id = pointsData["pointsIds"][index];
                     if(colorData[id]){
                         // color = colorData[id]
