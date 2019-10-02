@@ -38,8 +38,8 @@ class SVG extends React.PureComponent {
     state = {
         tool: TOOL_NONE,
         value: INITIAL_VALUE,
-        fill: "grey",
-        idClicked: []
+        fill: "white",
+        startLongON: false
     };
 
     Viewer = null;
@@ -69,12 +69,36 @@ class SVG extends React.PureComponent {
         this.Viewer.zoomOnViewerCenter(1.1)
     }
 
-    handleClick(id) {
-        this.setState({idClicked: [...this.state.idClicked, id]})
+    // handle all clicks long and regular
+    handleClicks(ON, clickId=false) {
+        let localON = false;
+
+        if (ON){
+            this.setState({startLongON: true});
+            console.log("started long press");
+            localON = true
+        }else {
+            this.setState({startLongON: false});
+            console.log("Cancel long press")
+        }
+
+        let timer = null;
+        if (localON){
+            console.log("aki start");
+            timer = setTimeout(()=> {
+               if (this.state.startLongON){
+                   // handle long press
+                   console.log("Long pressed executed");
+                   this.setState({startLongON: false});
+               }
+           }, 2000)
+        }
+        // handle regular click
+        else if (!ON && clickId){
+            alert("just click" + clickId);
+            clearTimeout(timer);
+        }
     }
-
-    // handle long press
-
 
     render() {
         const {farm, colorData} = this.props;
@@ -88,7 +112,7 @@ class SVG extends React.PureComponent {
         if (pointsData){
             pointsData["points"].forEach((point, index) => {
 
-                let color = null;
+                let color = fill;
                 if (colorData){
                     const id = pointsData["pointsIds"][index];
                     if(colorData[id]){
@@ -102,11 +126,18 @@ class SVG extends React.PureComponent {
                 paths.push(
                     <polygon
                         id={pointsData["pointsIds"][index]}
-                        onClick={()=>{
+                        onMouseUp={()=> {
+                            const {startLongON} = this.state;
                             const id = pointsData["pointsIds"][index];
-                            alert(id);
-                            this.handleClick(id)
-                        }}
+                                if (startLongON){
+                                    this.handleClicks(false, id)
+                                }
+                            }
+                        }
+                        // onTouchStart={}
+                        // onTouchEnd={}
+                        onMouseDown={()=> this.handleClicks(true)}
+                        onMouseLeave={()=>this.handleClicks(false)}
                         points={point}
                         style={{
                             fill: color, stroke:"black", strokeWidth:0.2
