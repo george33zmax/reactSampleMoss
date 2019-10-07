@@ -103,8 +103,7 @@ class SVG extends React.PureComponent {
     render() {
         const {farm, colorData} = this.props;
         const {fill, idClicked} = this.state;
-
-        // console.log("colorData", colorData);
+        console.log("colorData", colorData);
 
         const paths = [];
         const pointsData = farm ? farm : false;
@@ -116,7 +115,6 @@ class SVG extends React.PureComponent {
                 if (colorData){
                     const id = pointsData["pointsIds"][index];
                     if(colorData[id]){
-                        // color = colorData[id]
                         color = colors[colorData[id]["vertexPhase"]];
                     }
                 }else {
@@ -156,7 +154,6 @@ class SVG extends React.PureComponent {
                             <button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitToViewer()}>Fit</button>
                 </div>
 
-
                 <div className='main__graphic'>
                     <ReactSVGPanZoom
                         width={800} height={650}
@@ -179,6 +176,5 @@ class SVG extends React.PureComponent {
 export default withRouter(connect(state => ({
     socket: state.socket,
     project: state.project,
-    controllerData: state.controllerData,
     colorData: state.colorData
 }))(SVG));

@@ -16,7 +16,7 @@ class Farm extends Component {
     }
 
     render(){
-        const {project, controllerData} = this.props;
+        const {controllerData} = this.props;
         const farmData =  controllerData && controllerData["points"] && controllerData["pointsIds"] ? controllerData : false;
 
         return(
@@ -33,7 +33,6 @@ class Farm extends Component {
         );
     }
 };
-
 
 export default withRouter(connect(state => ({
     socket: state.socket,
