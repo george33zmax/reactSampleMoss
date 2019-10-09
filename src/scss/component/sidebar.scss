@@ -158,8 +158,8 @@
 
 .sidebar__link-icon {
   margin-right: 10px;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 15px;
+  line-height: 15px;
   color: $color-icon;
 }
 
@@ -193,6 +193,7 @@
         background-color: themed('colorBackground');
       }
     }
+
   }
 
   .sidebar__link {
@@ -297,7 +298,7 @@
             width: 240px;
 
             @include themify($themes) {
-              background: themed('colorHover');
+              background: rgba(255,199,0,.9)  /*themed('colorHover')*/;
             }
 
             &:before {

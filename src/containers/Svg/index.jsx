@@ -1,6 +1,6 @@
 import React from 'react';
 import {INITIAL_VALUE, ReactSVGPanZoom, TOOL_NONE} from 'react-svg-pan-zoom';
-import {Col, Row} from "reactstrap";
+import {Card, CardBody, Col, Row} from "reactstrap";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
@@ -146,29 +146,34 @@ class SVG extends React.PureComponent {
         }
 
         return (
-            <div className='main__content'>
+            <Col md={12}>
 
-                <div className='main__btn'>
-                            {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.zoomOnViewerCenter()}>Zoom in</button>*/}
-                            {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitSelection()}>Zoom area 200x200</button>*/}
-                            <button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitToViewer()}>Fit</button>
-                </div>
+                        <div className='main__content'>
 
-                <div className='main__graphic'>
-                    <ReactSVGPanZoom
-                        width={800} height={650}
-                        ref={Viewer => this.Viewer = Viewer}
-                        tool={this.state.tool} onChangeTool={tool => this.changeTool(tool)}
-                        value={this.state.value} onChangeValue={value => this.changeValue(value)}
-                    >
-                        <svg width={800} height={800}>
-                            <g fillOpacity=".5">
-                                {paths}
-                            </g>
-                        </svg>
-                    </ReactSVGPanZoom>
-                </div>
-            </div>
+                            <div className='main__btn'>
+                                {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.zoomOnViewerCenter()}>Zoom in</button>*/}
+                                {/*<button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitSelection()}>Zoom area 200x200</button>*/}
+                                <button className="btn btn-primary account__btn account__btn--small" onClick={() => this.fitToViewer()}>center</button>
+                            </div>
+
+                            <div className='main__graphic'>
+                                <ReactSVGPanZoom
+                                    width={800} height={650}
+                                    ref={Viewer => this.Viewer = Viewer}
+                                    tool={this.state.tool} onChangeTool={tool => this.changeTool(tool)}
+                                    value={this.state.value} onChangeValue={value => this.changeValue(value)}
+                                >
+                                    <svg width={800} height={800}>
+                                        <g fillOpacity=".5">
+                                            {paths}
+                                        </g>
+                                    </svg>
+                                </ReactSVGPanZoom>
+                            </div>
+                        </div>
+
+            </Col>
+
         );
     }
 }

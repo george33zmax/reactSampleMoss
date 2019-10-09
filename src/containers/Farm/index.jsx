@@ -20,16 +20,16 @@ class Farm extends Component {
         const farmData =  controllerData && controllerData["points"] && controllerData["pointsIds"] ? controllerData : false;
 
         return(
-            <Container className="dashboard">
-                <Row>
+            <div className='dashboard__content'>
+
                     <ExampleCard />
-                </Row>
-                <Row>
-                    <Col md={4}>
-                        <SVG farm={farmData}/>
-                    </Col>
-                </Row>
-            </Container>
+
+                <div className="farm">
+                    <SVG farm={farmData}/>
+                </div>
+
+
+            </div>
         );
     }
 };

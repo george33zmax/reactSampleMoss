@@ -9,8 +9,8 @@ const ExampleCard = (props) => (
     <Card>
       <CardBody>
         <div className="card__title">
-          <h1 className="bold-text">{`Welcome ${props.user["name"]}`}</h1>
-          <h5 className="subhead">Example subhead</h5>
+          <h2 className="bold-text">{`Welcome ${props.user["name"]}`}</h2>
+          <h4 className="subhead">Example subhead</h4>
         </div>
         <p>Your content here</p>
       </CardBody>

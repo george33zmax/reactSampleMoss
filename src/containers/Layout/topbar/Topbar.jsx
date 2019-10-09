@@ -36,9 +36,16 @@ class Topbar extends PureComponent {
             <Link className="topbar__logo" to="/projects" />
           </div>
           <div className="topbar__right">
-            <DateTimePicker value={date} onChange={this.onChange}/>
-            <Legend />
-            <TopbarProfile logout={logout} />
+            <div className="topbar__time">
+              <DateTimePicker value={date} onChange={this.onChange}/>
+            </div>
+           <div className="topbar__legend">
+             <Legend />
+           </div>
+            <div className="topbar__user">
+              <TopbarProfile logout={logout} />
+            </div>
+
           </div>
         </div>
       </div>

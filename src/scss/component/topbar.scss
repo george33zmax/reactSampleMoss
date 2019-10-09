@@ -74,6 +74,13 @@
   height: 100%;
   margin-right: 15px;
 }
+.topbar {
+  &__time, &__legend, &__user {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+  }
+}
 
 .topbar__left {
   position: absolute;
@@ -92,7 +99,6 @@
   border: none;
   transition: all 0.3s;
   box-shadow: none;
-  padding: 0 15px;
   background-color: transparent;
 
   &:hover, &:focus, &:active, &:focus:active {
@@ -134,9 +140,10 @@
 
 .topbar__icon {
   margin-left: 8px;
-  height: 18px;
+  height: 20px;
   margin-top: auto;
   fill: $color-icon;
+
   transition: all ease .2s;
 
   &:hover {
@@ -239,7 +246,6 @@
 
 .topbar__profile {
   margin-bottom: 0;
-  margin-left: 20px;
   position: relative;
 }
 
